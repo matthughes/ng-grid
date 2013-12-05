@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ng-grid workbench</title>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../ng-grid.css" />
+
+    <script type="text/javascript" src="largeLoad.js"></script>
+    <script type="text/javascript" src="largeTestData.js"></script>
+    <script type="text/javascript" src="../lib/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../lib/jquery-ui-1.9.1.custom.min.js"></script>
+    <script type="text/javascript" src="../lib/angular.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../build/ng-grid.debug.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script>
+        angular.module('myApp',['ngGrid']);
+
+        function showContainer() {
+          var myContainer = document.getElementById('container');
+          myContainer.style.display='';
+        }
+    </script>
+    <style type="text/css">
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        #myGrid {
+            flex: 1;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="userController">
+    <button onclick="showContainer()">Show Grid (grid won't size right until browser resized)</button>
+    <div id="container" style="display: none">
+       <span>Some Directions</span>
+       <div id="myGrid" ng-grid="gridOptions2"></div>
+   </div>
+</body>
+</html>
